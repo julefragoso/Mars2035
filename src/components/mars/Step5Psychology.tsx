@@ -4,6 +4,8 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { UserData, PSYCHOLOGICAL_QUESTIONS } from '@/types/mars';
 import { ProgressHeader } from './ProgressHeader';
+import { AnimatedStars, FloatingTechElements, GlowOrb } from './AnimatedBackground';
+import { TechPanel, HologramLine } from './TechElements';
 
 interface Step5Props {
   userData: UserData;
@@ -29,7 +31,10 @@ export const Step5Psychology = ({ userData, onUpdate, onNext, onBack }: Step5Pro
   const isValid = answeredQuestions === PSYCHOLOGICAL_QUESTIONS.length;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <AnimatedStars />
+      <FloatingTechElements />
+      
       <ProgressHeader
         currentStep={5}
         totalSteps={5}
@@ -38,19 +43,21 @@ export const Step5Psychology = ({ userData, onUpdate, onNext, onBack }: Step5Pro
         subtitle="Mental resilience and decision-making assessment"
       />
       
-      <div className="max-w-3xl mx-auto px-6 py-8">
+      <div className="relative z-10 max-w-3xl mx-auto px-6 py-8">
         <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="bg-card/50 p-6 rounded-lg border border-border">
-            <h3 className="text-lg font-medium text-foreground mb-3">Mission Scenarios</h3>
+          <TechPanel className="p-6 animate-fade-in-up">
+            <div className="flex items-center mb-3">
+              <GlowOrb className="w-6 h-6 mr-3" />
+              <h3 className="text-lg font-medium text-foreground">Mission Scenarios</h3>
+            </div>
             <p className="text-sm text-muted-foreground">
               The following scenarios assess your psychological readiness for the unique challenges 
-              of Mars colonization. Answer honestly - there are no universally "correct" responses, 
-              but your answers will help determine your optimal role and compatibility.
+              of Mars colonization. Answer honestly - there are no universally "correct" responses.
             </p>
-          </div>
+          </TechPanel>
 
           {PSYCHOLOGICAL_QUESTIONS.map((question, index) => (
-            <div key={question.id} className="bg-card border border-border rounded-lg p-6">
+            <TechPanel key={question.id} className="p-6 animate-stagger-fade" style={{ animationDelay: `${0.5 + (index * 0.2)}s` }}>
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="text-base font-medium text-foreground">
@@ -86,7 +93,7 @@ export const Step5Psychology = ({ userData, onUpdate, onNext, onBack }: Step5Pro
                   </div>
                 ))}
               </RadioGroup>
-            </div>
+            </TechPanel>
           ))}
 
           <div className="text-center text-sm text-muted-foreground">

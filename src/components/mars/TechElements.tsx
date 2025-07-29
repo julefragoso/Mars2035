@@ -37,9 +37,23 @@ export const HologramLine = ({ text, delay = 0, className = '' }: HologramLinePr
   );
 };
 
-export const TechPanel = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
+export const TechPanel = ({ 
+  children, 
+  className = '', 
+  style, 
+  ...props 
+}: { 
+  children: React.ReactNode; 
+  className?: string; 
+  style?: React.CSSProperties;
+  [key: string]: any;
+}) => {
   return (
-    <div className={`relative bg-card/20 backdrop-blur-sm border border-mars-rust/30 rounded-lg overflow-hidden ${className}`}>
+    <div 
+      className={`relative bg-card/20 backdrop-blur-sm border border-mars-rust/30 rounded-lg overflow-hidden ${className}`}
+      style={style}
+      {...props}
+    >
       {/* Shimmer effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-mars-glow/10 to-transparent animate-shimmer" />
       

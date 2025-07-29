@@ -3,6 +3,8 @@ import { Badge } from '@/components/ui/badge';
 import { EvaluationResult, UserData } from '@/types/mars';
 import { Download, Share, RotateCcw, ExternalLink } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
+import { AnimatedStars, FloatingTechElements, GlowOrb } from './AnimatedBackground';
+import { TechPanel, HologramLine } from './TechElements';
 
 interface FinalScreenProps {
   result: EvaluationResult;
@@ -15,15 +17,19 @@ export const FinalScreen = ({ result, userData, onRestart }: FinalScreenProps) =
   const shareUrl = `https://mars-program.space/certificate/${certificateId}`;
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-6 py-8">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated background */}
+      <AnimatedStars />
+      <FloatingTechElements />
+      
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-8">
         {/* Digital Certificate */}
-        <div className="bg-gradient-to-b from-card to-card/50 border-2 border-mars-rust rounded-lg p-8 mb-8 relative overflow-hidden">
+        <TechPanel className="p-8 mb-8 relative overflow-hidden animate-fade-in-up">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-4 left-4 w-32 h-32 border border-mars-rust rounded-full"></div>
-            <div className="absolute bottom-4 right-4 w-24 h-24 border border-mars-oxide rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-mars-rust/30 rounded-full"></div>
+            <div className="absolute top-4 left-4 w-32 h-32 border border-mars-rust rounded-full animate-float"></div>
+            <div className="absolute bottom-4 right-4 w-24 h-24 border border-mars-oxide rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-mars-rust/30 rounded-full animate-glow-pulse"></div>
           </div>
 
           <div className="relative z-10">
@@ -122,7 +128,7 @@ export const FinalScreen = ({ result, userData, onRestart }: FinalScreenProps) =
               </div>
             </div>
           </div>
-        </div>
+        </TechPanel>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
