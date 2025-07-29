@@ -55,10 +55,10 @@ export const StartScreen = ({ onStart }: StartScreenProps) => {
               </div>
               <div className="ml-6 text-left">
                 <h1 className="text-6xl font-display font-bold tracking-tight text-foreground animate-stagger-fade">
-                  M.A.R.S.
+                  MARS 2035
                 </h1>
                 <HologramLine 
-                  text="Mars Admission & Ranking System"
+                  text="Admission & Ranking System"
                   delay={1000}
                   className="text-lg uppercase tracking-wider mt-2"
                 />

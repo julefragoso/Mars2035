@@ -1,22 +1,10 @@
-# Welcome to your Lovable project
+# Mars 2035 Project
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/688a71fa-c59f-4758-9568-d8f000992783
+Welcome to the Mars 2035 project - a React-based application built with modern web technologies.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/688a71fa-c59f-4758-9568-d8f000992783) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## How to run this project locally
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -36,38 +24,57 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and dev server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI library
+- **shadcn-ui** - Beautiful component library
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Client-side routing
+- **React Query** - Data fetching and caching
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/688a71fa-c59f-4758-9568-d8f000992783) and click on Share -> Publish.
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── lib/           # Utility functions and configurations
+├── types/         # TypeScript type definitions
+└── App.tsx        # Main application component
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Development
 
-Yes, you can!
+This project uses modern development practices including:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- TypeScript for type safety
+- ESLint for code linting
+- Prettier for code formatting
+- Tailwind CSS for styling
+- Component-based architecture
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Deployment
+
+To deploy this project, you can use any static hosting service like:
+
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
+
+Build the project with `npm run build` and deploy the contents of the `dist` folder.

@@ -3,25 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M.A.R.S. - Mars Admission & Ranking System</title>
+    <title>MARS 2035 - Admission & Ranking System</title>
+    <link rel="icon" type="image/svg+xml" href="/mars-favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/mars-favicon.svg" />
     <meta name="description" content="Official Mars Colonization Selection Program" />
     <meta name="author" content="M.A.R.S. Program" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <meta property="og:title" content="688a71fa-c59f-4758-9568-d8f000992783" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="MARS 2035 - Admission & Ranking System" />
+    <meta property="og:description" content="Official Mars Colonization Selection Program" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="/mars-og-image.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="MARS 2035 - Admission & Ranking System" />
+    <meta name="twitter:description" content="Official Mars Colonization Selection Program" />
+    <meta name="twitter:image" content="/mars-og-image.png" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Force favicon update
+      const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+      link.type = 'image/svg+xml';
+      link.rel = 'icon';
+      link.href = '/mars-favicon.svg?' + Date.now();
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
   </body>
 </html>
