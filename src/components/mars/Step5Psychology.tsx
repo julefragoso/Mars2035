@@ -43,75 +43,56 @@ export const Step5Psychology = ({ userData, onUpdate, onNext, onBack }: Step5Pro
         subtitle="Mental resilience and decision-making assessment"
       />
       
-      <div className="relative z-10 max-w-3xl mx-auto px-6 py-8">
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <TechPanel className="p-6 animate-fade-in-up">
-            <div className="flex items-center mb-3">
-              <GlowOrb className="w-6 h-6 mr-3" />
-              <h3 className="text-lg font-medium text-foreground">Mission Scenarios</h3>
+      <div className="relative z-10 max-w-2xl mx-auto px-6 py-8">
+        <TechPanel className="animate-fade-in-up mars-mobile-panel-form">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-display font-bold text-foreground mb-2 animate-stagger-fade">
+                Psychological Assessment
+              </h2>
+              <p className="text-muted-foreground animate-stagger-fade" style={{ animationDelay: '0.1s' }}>
+                Mental resilience and psychological compatibility evaluation
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              The following scenarios assess your psychological readiness for the unique challenges 
-              of Mars colonization. Answer honestly - there are no universally "correct" responses.
-            </p>
-          </TechPanel>
 
-          {PSYCHOLOGICAL_QUESTIONS.map((question, index) => (
-            <TechPanel key={question.id} className="p-6 animate-stagger-fade" style={{ animationDelay: `${0.5 + (index * 0.2)}s` }}>
-              <div className="mb-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-base font-medium text-foreground">
-                    Question {index + 1}
-                  </h4>
-                  <span className="text-xs font-mono text-mars-rust">
-                    {question.id.toUpperCase()}
-                  </span>
-                </div>
-                <p className="text-foreground leading-relaxed">
-                  {question.question}
-                </p>
-              </div>
-
-              <RadioGroup
-                value={responses[question.id] || ''}
-                onValueChange={(value) => handleResponseChange(question.id, value)}
-                className="space-y-3"
-              >
-                {question.options.map((option, optionIndex) => (
-                  <div key={optionIndex} className="flex items-start space-x-3 p-3 rounded border border-muted hover:bg-muted/20 transition-colors">
-                    <RadioGroupItem 
-                      value={option} 
-                      id={`${question.id}-${optionIndex}`}
-                      className="border-mars-rust text-mars-rust mt-1"
-                    />
-                    <Label 
-                      htmlFor={`${question.id}-${optionIndex}`} 
-                      className="text-sm text-foreground cursor-pointer leading-relaxed flex-1"
-                    >
-                      {option}
-                    </Label>
+            <div className="space-y-8">
+              {PSYCHOLOGICAL_QUESTIONS.map((question, index) => (
+                <div key={question.id} className="animate-stagger-fade" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+                  <Label className="text-foreground font-medium flex items-start mars-mobile-form-label">
+                    <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 mt-2 animate-glow-pulse flex-shrink-0" />
+                    <span className="text-base">{question.question}</span>
+                  </Label>
+                  <div className="mt-4 space-y-3 mars-mobile-psychology">
+                    {question.options.map((option, optionIndex) => (
+                      <div key={optionIndex} className="flex items-start space-x-3">
+                        <RadioGroupItem
+                          value={option}
+                          id={`${question.id}-${optionIndex}`}
+                          className="border-mars-rust/30 focus:border-mars-glow mt-1"
+                        />
+                        <Label 
+                          htmlFor={`${question.id}-${optionIndex}`} 
+                          className="text-sm font-normal cursor-pointer mars-mobile-form-label leading-relaxed"
+                        >
+                          {option}
+                        </Label>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </RadioGroup>
-            </TechPanel>
-          ))}
+                </div>
+              ))}
+            </div>
 
-          <div className="text-center text-sm text-muted-foreground">
-            Progress: <span className="text-mars-rust font-mono">{answeredQuestions}/{PSYCHOLOGICAL_QUESTIONS.length}</span> questions completed
-          </div>
-
-          <div className="pt-6 border-t border-border">
-            <Button 
-              type="submit" 
-              variant="mars" 
+            <Button
+              type="submit"
               size="lg" 
               disabled={!isValid}
-              className="w-full"
+              className="w-full relative overflow-hidden group mars-mobile-form-btn"
             >
-              Complete Evaluation
+              <span className="relative z-10">Complete Assessment</span>
             </Button>
-          </div>
-        </form>
+          </form>
+        </TechPanel>
       </div>
     </div>
   );

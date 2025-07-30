@@ -48,25 +48,25 @@ export const StartScreen = ({ onStart }: StartScreenProps) => {
         <div className="max-w-4xl w-full">
           {/* Header Section */}
           <div className="text-center space-y-8 mb-12">
-            <div className="flex items-center justify-center mb-8 animate-fade-in-up">
-              <div className="relative">
-                <Rocket className="h-20 w-20 text-mars-rust animate-rocket-launch" />
+            <div className="flex items-center justify-center mb-8 animate-fade-in-up mars-mobile-header">
+              <div className="relative mars-mobile-icon">
+                <Rocket className="h-20 w-20 text-mars-rust animate-rocket-launch mars-mobile-icon" />
                 <GlowOrb className="absolute -top-2 -right-2 w-6 h-6" />
               </div>
               <div className="ml-6 text-left">
-                <h1 className="text-6xl font-display font-bold tracking-tight text-foreground animate-stagger-fade">
+                <h1 className="text-6xl font-display font-bold tracking-tight text-foreground animate-stagger-fade mars-mobile-title">
                   MARS 2035
                 </h1>
                 <HologramLine 
                   text="Admission & Ranking System"
                   delay={1000}
-                  className="text-lg uppercase tracking-wider mt-2"
+                  className="text-lg uppercase tracking-wider mt-2 mars-mobile-subtitle"
                 />
               </div>
             </div>
             
             <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
-              <TechPanel className="max-w-2xl mx-auto">
+              <TechPanel className="max-w-2xl mx-auto mars-mobile-panel">
                 <div className="text-center space-y-4">
                   <h2 className="text-2xl font-light text-foreground">
                     Official Mars Colonization Selection Protocol
@@ -95,12 +95,12 @@ export const StartScreen = ({ onStart }: StartScreenProps) => {
           </div>
 
           {/* Evaluation Steps Preview */}
-          <div className="mb-12 animate-fade-in-up" style={{ animationDelay: '2s' }}>
+          <div className="mb-12 animate-fade-in-up mars-mobile-panel" style={{ animationDelay: '2s' }}>
             <TechPanel>
               <h3 className="text-center text-lg font-medium text-foreground mb-6">
                 Evaluation Protocol Overview
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mars-mobile-steps">
                 {stepElements.map((step, index) => {
                   const Icon = step.icon;
                   return (
@@ -132,7 +132,7 @@ export const StartScreen = ({ onStart }: StartScreenProps) => {
               variant="mars" 
               size="lg"
               disabled={!systemReady}
-              className="px-16 py-6 text-xl font-medium relative overflow-hidden group"
+              className="px-16 py-6 text-xl font-medium relative overflow-hidden group mars-mobile-btn"
             >
               <span className="relative z-10 flex items-center">
                 <Activity className="h-5 w-5 mr-3 animate-float" />
@@ -143,7 +143,7 @@ export const StartScreen = ({ onStart }: StartScreenProps) => {
               )}
             </Button>
             
-            <div className="flex justify-center space-x-8 text-xs font-mono text-muted-foreground">
+            <div className="flex justify-center space-x-8 text-xs font-mono text-muted-foreground mars-mobile-status">
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-glow-pulse" />
                 Security Cleared
@@ -166,10 +166,10 @@ export const StartScreen = ({ onStart }: StartScreenProps) => {
       </div>
 
       {/* Corner Tech Elements */}
-      <div className="absolute top-4 left-4 w-16 h-16 border-l-2 border-t-2 border-mars-rust/50 animate-glow-pulse" />
-      <div className="absolute top-4 right-4 w-16 h-16 border-r-2 border-t-2 border-mars-rust/50 animate-glow-pulse" />
-      <div className="absolute bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-mars-rust/50 animate-glow-pulse" />
-      <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-mars-rust/50 animate-glow-pulse" />
+      <div className="absolute top-4 left-4 w-16 h-16 border-l-2 border-t-2 border-mars-rust/50 animate-glow-pulse mars-mobile-corner" />
+      <div className="absolute top-4 right-4 w-16 h-16 border-r-2 border-t-2 border-mars-rust/50 animate-glow-pulse mars-mobile-corner" />
+      <div className="absolute bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-mars-rust/50 animate-glow-pulse mars-mobile-corner" />
+      <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-mars-rust/50 animate-glow-pulse mars-mobile-corner" />
     </div>
   );
 };

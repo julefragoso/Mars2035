@@ -48,7 +48,7 @@ export const Step4Skills = ({ userData, onUpdate, onNext, onBack }: Step4Props) 
       />
       
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-8">
-        <TechPanel className="animate-fade-in-up">
+        <TechPanel className="animate-fade-in-up mars-mobile-panel-form">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="text-center mb-6">
               <GlowOrb className="w-8 h-8 mx-auto mb-3" />
@@ -111,7 +111,7 @@ export const Step4Skills = ({ userData, onUpdate, onNext, onBack }: Step4Props) 
                 variant="mars" 
                 size="lg" 
                 disabled={!isValid}
-                className="w-full relative overflow-hidden group"
+                className="w-full relative overflow-hidden group mars-mobile-form-btn"
               >
                 <span className="relative z-10">Continue to Psychological Evaluation</span>
                 {isValid && (

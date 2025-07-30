@@ -51,7 +51,7 @@ export const Step3Lifestyle = ({ userData, onUpdate, onNext, onBack }: Step3Prop
       />
       
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-8">
-        <TechPanel className="animate-fade-in-up">
+        <TechPanel className="animate-fade-in-up mars-mobile-panel-form">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="text-center mb-6">
               <GlowOrb className="w-8 h-8 mx-auto mb-3" />
@@ -63,82 +63,80 @@ export const Step3Lifestyle = ({ userData, onUpdate, onNext, onBack }: Step3Prop
             </div>
 
             <div className="space-y-6">
+              {/* Exercise Habits */}
               <div className="animate-stagger-fade" style={{ animationDelay: '0.2s' }}>
-                <Label htmlFor="exerciseHabits" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="exerciseHabits" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
-                  Exercise and Fitness Habits
+                  Exercise Habits
                 </Label>
                 <Select value={formData.exerciseHabits} onValueChange={(value) => setFormData(prev => ({ ...prev, exerciseHabits: value }))}>
-                  <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow">
+                  <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input">
                     <SelectValue placeholder="Select your exercise routine" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Daily intense training">Daily intense training (2+ hours)</SelectItem>
-                    <SelectItem value="Regular exercise (3-5x/week)">Regular exercise (3-5x per week)</SelectItem>
-                    <SelectItem value="Moderate activity">Moderate activity (1-2x per week)</SelectItem>
-                    <SelectItem value="Minimal exercise">Minimal exercise (occasional)</SelectItem>
-                    <SelectItem value="Sedentary lifestyle">Sedentary lifestyle</SelectItem>
+                    <SelectItem value="Daily">Daily - Regular exercise routine</SelectItem>
+                    <SelectItem value="3-4 times/week">3-4 times/week - Moderate activity</SelectItem>
+                    <SelectItem value="1-2 times/week">1-2 times/week - Light activity</SelectItem>
+                    <SelectItem value="Rarely">Rarely - Minimal physical activity</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
-              <div className="animate-stagger-fade" style={{ animationDelay: '0.4s' }}>
-                <Label htmlFor="dietType" className="text-foreground font-medium flex items-center">
+              {/* Diet Type */}
+              <div className="animate-stagger-fade" style={{ animationDelay: '0.3s' }}>
+                <Label htmlFor="dietType" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
-                  Dietary Preferences
+                  Diet Type
                 </Label>
                 <Select value={formData.dietType} onValueChange={(value) => setFormData(prev => ({ ...prev, dietType: value }))}>
-                  <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow">
-                    <SelectValue placeholder="Select your diet type" />
+                  <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input">
+                    <SelectValue placeholder="Select your dietary preferences" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Balanced/Omnivore">Balanced/Omnivore - No restrictions</SelectItem>
+                    <SelectItem value="Omnivore">Omnivore - No restrictions</SelectItem>
                     <SelectItem value="Vegetarian">Vegetarian - No meat</SelectItem>
                     <SelectItem value="Vegan">Vegan - No animal products</SelectItem>
-                    <SelectItem value="Keto/Low-carb">Keto/Low-carb</SelectItem>
-                    <SelectItem value="Paleo">Paleo</SelectItem>
-                    <SelectItem value="Mediterranean">Mediterranean</SelectItem>
-                    <SelectItem value="Other specialized">Other specialized diet</SelectItem>
+                    <SelectItem value="Pescatarian">Pescatarian - Fish and plant-based</SelectItem>
+                    <SelectItem value="Gluten-free">Gluten-free - Medical necessity</SelectItem>
+                    <SelectItem value="Other">Other - Special dietary needs</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
-              <div className="animate-stagger-fade" style={{ animationDelay: '0.6s' }}>
-                <Label htmlFor="sleepHours" className="text-foreground font-medium flex items-center">
+              {/* Sleep Hours */}
+              <div className="animate-stagger-fade" style={{ animationDelay: '0.4s' }}>
+                <Label htmlFor="sleepHours" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
-                  Average Sleep Hours per Night
+                  Average Sleep Hours
                 </Label>
                 <Input
                   id="sleepHours"
                   type="number"
-                  min="3"
+                  min="4"
                   max="12"
-                  step="0.5"
                   value={formData.sleepHours}
                   onChange={(e) => setFormData(prev => ({ ...prev, sleepHours: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
-                  placeholder="Hours of sleep"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
+                  placeholder="Hours per night"
                   required
                 />
               </div>
 
-              <div className="animate-stagger-fade" style={{ animationDelay: '0.8s' }}>
-                <Label htmlFor="addictions" className="text-foreground font-medium flex items-center">
+              {/* Addictions */}
+              <div className="animate-stagger-fade" style={{ animationDelay: '0.5s' }}>
+                <Label htmlFor="addictions" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
-                  Substance Use and Dependencies
+                  Substance Use
                 </Label>
                 <Select value={formData.addictions} onValueChange={(value) => setFormData(prev => ({ ...prev, addictions: value }))}>
-                  <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow">
-                    <SelectValue placeholder="Select applicable options" />
+                  <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input">
+                    <SelectValue placeholder="Select your substance use status" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="None">None - No substance dependencies</SelectItem>
-                    <SelectItem value="Caffeine only">Caffeine only (coffee, tea, energy drinks)</SelectItem>
-                    <SelectItem value="Social drinking">Social drinking (alcohol occasionally)</SelectItem>
-                    <SelectItem value="Regular drinking">Regular drinking (alcohol weekly)</SelectItem>
-                    <SelectItem value="Tobacco use">Tobacco use (cigarettes, vaping)</SelectItem>
-                    <SelectItem value="Prescription medications">Prescription medications (daily)</SelectItem>
-                    <SelectItem value="Multiple substances">Multiple substances</SelectItem>
+                    <SelectItem value="None">None - No substance use</SelectItem>
+                    <SelectItem value="Social">Social - Occasional use</SelectItem>
+                    <SelectItem value="Regular">Regular - Frequent use</SelectItem>
+                    <SelectItem value="Former">Former - Recovered/In recovery</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -161,7 +159,7 @@ export const Step3Lifestyle = ({ userData, onUpdate, onNext, onBack }: Step3Prop
                 variant="mars" 
                 size="lg" 
                 disabled={!isValid}
-                className="w-full relative overflow-hidden group"
+                className="w-full relative overflow-hidden group mars-mobile-form-btn"
               >
                 <span className="relative z-10">Continue to Skills Assessment</span>
                 {isValid && (

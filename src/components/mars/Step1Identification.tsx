@@ -45,7 +45,7 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
       />
       
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-8">
-        <TechPanel className="animate-fade-in-up">
+        <TechPanel className="animate-fade-in-up mars-mobile-panel-form">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="text-center mb-6">
               <GlowOrb className="w-8 h-8 mx-auto mb-3" />
@@ -58,7 +58,7 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
 
             <div className="space-y-6">
               <div className="animate-stagger-fade" style={{ animationDelay: '0.2s' }}>
-                <Label htmlFor="fullName" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="fullName" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                   Full Legal Name
                 </Label>
@@ -67,14 +67,14 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
                   type="text"
                   value={formData.fullName}
                   onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
                   placeholder="Enter your complete legal name"
                   required
                 />
               </div>
 
               <div className="animate-stagger-fade" style={{ animationDelay: '0.4s' }}>
-                <Label htmlFor="country" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="country" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                   Country of Origin
                 </Label>
@@ -83,14 +83,14 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
                   type="text"
                   value={formData.country}
                   onChange={(e) => setFormData(prev => ({ ...prev, country: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
                   placeholder="Country of citizenship"
                   required
                 />
               </div>
 
               <div className="animate-stagger-fade" style={{ animationDelay: '0.6s' }}>
-                <Label htmlFor="nativeLanguage" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="nativeLanguage" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                   Native Language
                 </Label>
@@ -99,14 +99,14 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
                   type="text"
                   value={formData.nativeLanguage}
                   onChange={(e) => setFormData(prev => ({ ...prev, nativeLanguage: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
                   placeholder="Primary spoken language"
                   required
                 />
               </div>
 
               <div className="animate-stagger-fade" style={{ animationDelay: '0.8s' }}>
-                <Label htmlFor="profession" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="profession" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                   Current Profession
                 </Label>
@@ -115,7 +115,7 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
                   type="text"
                   value={formData.profession}
                   onChange={(e) => setFormData(prev => ({ ...prev, profession: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
                   placeholder="Your current job or field of expertise"
                   required
                 />
@@ -128,7 +128,7 @@ export const Step1Identification = ({ userData, onUpdate, onNext, onBack }: Step
                 variant="mars" 
                 size="lg" 
                 disabled={!isValid}
-                className="w-full relative overflow-hidden group"
+                className="w-full relative overflow-hidden group mars-mobile-form-btn"
               >
                 <span className="relative z-10">Continue to Physical Assessment</span>
                 {isValid && (

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { EvaluationResult, UserData } from '@/types/mars';
-import { CheckCircle, XCircle, Award, User, Download, Share } from 'lucide-react';
+import { CheckCircle, XCircle, Award, User, Download, Share, RefreshCw, ArrowRight } from 'lucide-react';
 import { AnimatedStars, FloatingTechElements, GlowOrb } from './AnimatedBackground';
 import { TechPanel, HologramLine } from './TechElements';
 

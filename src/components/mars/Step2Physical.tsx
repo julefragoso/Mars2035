@@ -7,6 +7,8 @@ import { UserData } from '@/types/mars';
 import { ProgressHeader } from './ProgressHeader';
 import { AnimatedStars, FloatingTechElements, GlowOrb } from './AnimatedBackground';
 import { TechPanel, HologramLine } from './TechElements';
+import { RadioGroupItem } from '@/components/ui/radio-group';
+import { Textarea } from '@/components/ui/textarea';
 
 interface Step2Props {
   userData: UserData;
@@ -40,6 +42,13 @@ export const Step2Physical = ({ userData, onUpdate, onNext, onBack }: Step2Props
 
   const isValid = formData.age && formData.sex && formData.height && formData.weight && formData.bloodType && formData.generalHealth;
 
+  const fitnessLevels = [
+    { value: "Excellent", label: "Excellent - No medical issues, peak physical condition" },
+    { value: "Good", label: "Good - Minor medical history, generally healthy" },
+    { value: "Fair", label: "Fair - Some ongoing health concerns, managed with treatment" },
+    { value: "Poor", label: "Poor - Significant health issues affecting daily life" }
+  ];
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Animated background */}
@@ -55,7 +64,7 @@ export const Step2Physical = ({ userData, onUpdate, onNext, onBack }: Step2Props
       />
       
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-8">
-        <TechPanel className="animate-fade-in-up">
+        <TechPanel className="animate-fade-in-up mars-mobile-panel-form">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="text-center mb-6">
               <GlowOrb className="w-8 h-8 mx-auto mb-3" />
@@ -102,50 +111,50 @@ export const Step2Physical = ({ userData, onUpdate, onNext, onBack }: Step2Props
               </div>
 
               <div className="animate-stagger-fade" style={{ animationDelay: '0.4s' }}>
-                <Label htmlFor="height" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="height" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                   Height (cm)
                 </Label>
                 <Input
                   id="height"
                   type="number"
-                  min="140"
-                  max="220"
+                  min="100"
+                  max="250"
                   value={formData.height}
                   onChange={(e) => setFormData(prev => ({ ...prev, height: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
-                  placeholder="Centimeters"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
+                  placeholder="Enter your height in centimeters"
                   required
                 />
               </div>
 
               <div className="animate-stagger-fade" style={{ animationDelay: '0.5s' }}>
-                <Label htmlFor="weight" className="text-foreground font-medium flex items-center">
+                <Label htmlFor="weight" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                   <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                   Weight (kg)
                 </Label>
                 <Input
                   id="weight"
                   type="number"
-                  min="40"
-                  max="150"
+                  min="30"
+                  max="200"
                   value={formData.weight}
                   onChange={(e) => setFormData(prev => ({ ...prev, weight: e.target.value }))}
-                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors"
-                  placeholder="Kilograms"
+                  className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input"
+                  placeholder="Enter your weight in kilograms"
                   required
                 />
               </div>
             </div>
 
             <div className="animate-stagger-fade" style={{ animationDelay: '0.6s' }}>
-              <Label htmlFor="bloodType" className="text-foreground font-medium flex items-center">
+              <Label htmlFor="bloodType" className="text-foreground font-medium flex items-center mars-mobile-form-label">
                 <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
                 Blood Type
               </Label>
               <Select value={formData.bloodType} onValueChange={(value) => setFormData(prev => ({ ...prev, bloodType: value }))}>
-                <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow">
-                  <SelectValue placeholder="Select blood type" />
+                <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow transition-colors mars-mobile-input">
+                  <SelectValue placeholder="Select your blood type" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="A+">A+</SelectItem>
@@ -161,30 +170,35 @@ export const Step2Physical = ({ userData, onUpdate, onNext, onBack }: Step2Props
             </div>
 
             <div className="animate-stagger-fade" style={{ animationDelay: '0.7s' }}>
-              <Label htmlFor="generalHealth" className="text-foreground font-medium flex items-center">
+              <Label className="text-foreground font-medium flex items-center mars-mobile-form-label">
                 <div className="w-2 h-2 bg-mars-glow rounded-full mr-2 animate-glow-pulse" />
-                General Health Status
+                Fitness Level
               </Label>
-              <Select value={formData.generalHealth} onValueChange={(value) => setFormData(prev => ({ ...prev, generalHealth: value }))}>
-                <SelectTrigger className="mt-2 bg-card/50 border-mars-rust/30 focus:border-mars-glow">
-                  <SelectValue placeholder="Assess your overall health" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Excellent">Excellent - No medical issues, peak physical condition</SelectItem>
-                  <SelectItem value="Good">Good - Minor medical history, generally healthy</SelectItem>
-                  <SelectItem value="Fair">Fair - Some ongoing health concerns, managed with treatment</SelectItem>
-                  <SelectItem value="Poor">Poor - Significant health issues affecting daily life</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="mt-2 space-y-3">
+                {fitnessLevels.map((level) => (
+                  <div key={level.value} className="flex items-center space-x-3">
+                    <RadioGroupItem
+                      value={level.value}
+                      id={level.value}
+                      className="border-mars-rust/30 focus:border-mars-glow"
+                    />
+                    <Label htmlFor={level.value} className="text-sm font-normal cursor-pointer mars-mobile-form-label">
+                      {level.label}
+                    </Label>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="pt-6 border-t border-border animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+
+
+            <div className="pt-6 border-t border-border animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
               <Button 
                 type="submit" 
                 variant="mars" 
                 size="lg" 
                 disabled={!isValid}
-                className="w-full relative overflow-hidden group"
+                className="w-full relative overflow-hidden group mars-mobile-form-btn"
               >
                 <span className="relative z-10">Continue to Lifestyle Assessment</span>
                 {isValid && (

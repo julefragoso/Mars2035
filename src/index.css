@@ -122,3 +122,116 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@media (max-width: 640px) {
+  .mars-mobile-title {
+    font-size: 2.2rem !important;
+    line-height: 2.5rem !important;
+    text-align: center !important;
+  }
+  .mars-mobile-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.3rem !important;
+    text-align: center !important;
+    margin-top: 0.5rem !important;
+  }
+  .mars-mobile-header {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .mars-mobile-icon {
+    margin: 0 auto !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+  .mars-mobile-panel {
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .mars-mobile-btn {
+    width: 100% !important;
+    padding: 1rem 0.5rem !important;
+    font-size: 1rem !important;
+  }
+  .mars-mobile-steps {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .mars-mobile-status {
+    font-size: 0.9rem !important;
+  }
+  .mars-mobile-corner {
+    display: none !important;
+  }
+  .mars-mobile-input {
+    font-size: 1rem !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+  }
+  .mars-mobile-form-btn {
+    width: 100% !important;
+    padding: 1rem 0.5rem !important;
+    font-size: 1rem !important;
+  }
+  .mars-mobile-panel-form {
+    padding: 1rem !important;
+  }
+  .mars-mobile-form-label {
+    font-size: 1rem !important;
+  }
+  .mars-mobile-skills {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .mars-mobile-psychology {
+    gap: 0.75rem !important;
+  }
+  .mars-mobile-breakdown {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .mars-mobile-breakdown-title {
+    font-size: 1.25rem !important;
+  }
+  .mars-mobile-breakdown-score {
+    font-size: 1.5rem !important;
+  }
+  .mars-mobile-breakdown-label {
+    font-size: 0.875rem !important;
+  }
+  .mars-mobile-status-badge {
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+  .mars-mobile-score {
+    font-size: 3rem !important;
+  }
+  .mars-mobile-role {
+    font-size: 1.125rem !important;
+  }
+  .mars-mobile-actions {
+    gap: 0.75rem !important;
+  }
+  .mars-mobile-action-btn {
+    width: 100% !important;
+    padding: 1rem 0.5rem !important;
+    font-size: 1rem !important;
+  }
+  .mars-mobile-mission-details {
+    gap: 1rem !important;
+  }
+  .mars-mobile-detail-title {
+    font-size: 1rem !important;
+  }
+  .mars-mobile-detail-value {
+    font-size: 1.5rem !important;
+  }
+  .mars-mobile-steps-title {
+    font-size: 1.25rem !important;
+  }
+  .mars-mobile-step-text {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+}

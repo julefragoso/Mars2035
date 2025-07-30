@@ -24,7 +24,7 @@ export const FinalScreen = ({ result, userData, onRestart }: FinalScreenProps) =
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-8">
         {/* Digital Certificate */}
-        <TechPanel className="p-8 mb-8 relative overflow-hidden animate-fade-in-up">
+        <TechPanel className="p-8 mb-8 relative overflow-hidden animate-fade-in-up mars-mobile-panel">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-4 left-4 w-32 h-32 border border-mars-rust rounded-full animate-float"></div>
@@ -38,7 +38,7 @@ export const FinalScreen = ({ result, userData, onRestart }: FinalScreenProps) =
               <div className="text-mars-rust font-mono text-sm tracking-widest mb-2">
                 OFFICIAL MARS COLONIZATION PROGRAM
               </div>
-              <h1 className="text-4xl font-display font-bold text-foreground mb-2">
+              <h1 className="text-4xl font-display font-bold text-foreground mb-2 mars-mobile-title">
                 M.A.R.S. CERTIFICATE
               </h1>
               <div className="text-sm text-muted-foreground">
@@ -131,16 +131,16 @@ export const FinalScreen = ({ result, userData, onRestart }: FinalScreenProps) =
         </TechPanel>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <Button variant="mars" size="lg" className="flex items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 mars-mobile-actions">
+          <Button variant="mars" size="lg" className="flex items-center mars-mobile-action-btn">
             <Download className="h-4 w-4 mr-2" />
             Download PDF Certificate
           </Button>
-          <Button variant="minimal" size="lg" className="flex items-center">
+          <Button variant="minimal" size="lg" className="flex items-center mars-mobile-action-btn">
             <Share className="h-4 w-4 mr-2" />
             Share on Social Media
           </Button>
-          <Button variant="ghost" size="lg" className="flex items-center">
+          <Button variant="ghost" size="lg" className="flex items-center mars-mobile-action-btn">
             <ExternalLink className="h-4 w-4 mr-2" />
             View on Blockchain
           </Button>
